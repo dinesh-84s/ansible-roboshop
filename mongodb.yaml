@@ -6,7 +6,6 @@
     anisble.buitin.copy:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
-
   - name: Install mongodb server
     ansible.buitin.dnf:
       name: mongodb-org
