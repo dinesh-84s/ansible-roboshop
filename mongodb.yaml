@@ -3,11 +3,12 @@
   hosts: mongodb
   tasks:
   - name: mongodb repo
-    anisble.buitin.copy:
+    anisble.builtin.copy:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
+    
   - name: Install mongodb server
-    ansible.buitin.dnf:
+    ansible.builtin.dnf:
       name: mongodb-org
       state: present
 
