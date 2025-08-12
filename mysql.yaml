@@ -1,0 +1,19 @@
+- name: conigure mysql component
+  hosts: mysql
+  become: yes
+  tasks:
+  - name: install my sql server
+    ansible.buitin.dnf:
+      name: mysql server
+      state: installed
+
+  - name: start mysql server
+    ansible.builtin.service:
+      name: mysql
+      state: started
+      enabled: yes
+
+  - name: setup roo password
+    ansible.builtin.command: mysql_secure_installation --set-root-pass RoboShop@1
+
+
