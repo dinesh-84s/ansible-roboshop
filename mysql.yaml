@@ -3,7 +3,7 @@
   become: yes
   tasks:
   - name: install my sql server
-    ansible.buitin.dnf:
+    ansible.builtin.dnf:
       name: mysql server
       state: installed
 
@@ -13,7 +13,7 @@
       state: started
       enabled: yes
 
-  - name: setup roo password
+  - name: setup root password
     ansible.builtin.command: mysql_secure_installation --set-root-pass RoboShop@1
 
 
