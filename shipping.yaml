@@ -104,6 +104,8 @@
 
   - name: restart shipping
     ansible.builtin.service:
+    tags:
+    - import
       state: restarted
       name: shipping
 
