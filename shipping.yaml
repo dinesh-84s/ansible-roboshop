@@ -76,7 +76,7 @@
   #     login_db: cities
 
   - name: import the data
-    community.mysql.mysql.log:
+    community.mysql.mysql.db:
       login_user: root
       login_password: RoboShop@1
       login_host: mysql.dineshkonda.site
