@@ -2,9 +2,9 @@
   hosts: rabbitmq
   become: yes
   tasks: 
-  - name: rabbitmq repo
-    ansible.buitin.copy:
-      src: rabbitmq
+  - name: copy rabbitmq repo
+    ansible.builtin.copy:
+      src: rabbitmq.repo
       dest: /etc/yum.repos.d/rabbitmq.repo
 
   - name: install rabbitmq-server
