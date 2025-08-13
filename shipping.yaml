@@ -75,17 +75,32 @@
   #     login_host: mysql.dineshkonda.site
   #     login_db: cities
 
-  - name: import the data
-    community.mysql.mysql.db:
+  # - name: import data
+  #   community.mysql.mysql.db:
+  #     login_user: root
+  #     login_password: RoboShop@1
+  #     login_host: mysql.dineshkonda.site
+  #     state: import
+  #     target: "{{ item }}"
+  #   loops:
+  #   - /app/db/schema.sql
+  #   - /app/db/app-user.sql
+  #   -  /app/db/master-data.sql
+
+  - name: import data
+    tags:
+    - import
+    community.mysql.mysql_db:
+      name: all
       login_user: root
       login_password: RoboShop@1
       login_host: mysql.dineshkonda.site
       state: import
       target: "{{ item }}"
-    loops:
+    loop:
     - /app/db/schema.sql
     - /app/db/app-user.sql
-    -  /app/db/master-data.sql
+    - /app/db/master-data.sql
 
   - name: restart shipping
     ansible.builtin.service:
